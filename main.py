@@ -25,7 +25,7 @@ def hi():
 
     ###############################
     #listOfLinks = ["https://mayahawk14.github.io/portfolio/", "https://uroulette.com/visit/wnnvv", "https://uroulette.com/visit/wrrwo"]
-
+    word = "live"
     h = requests.get("https://uroulette.com/")
     soup = BeautifulSoup(h.content, 'html.parser')
 
@@ -66,13 +66,16 @@ def hi():
                 continue
             else:
                 #print("No elements were found.")
-                break
+                if len(word) < 4:
+                    break
+                else:
+                    continue
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
 
     title = soup.title.string
 
-    #print("Title: " + title + "\n")
+    print("Title: " + title + "\n")
     print(word)
     # Find the main content container
 
